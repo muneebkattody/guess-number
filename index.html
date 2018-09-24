@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <input tabindex="1" type="text" id="number" />
+    <button tabindex="0" onclick="check()" id="btn">Check</button>
+    <p id="output"></p>
+
+    <script>
+        var inp = document.getElementById('number');
+        var out = document.getElementById('output');
+
+        function check() {
+            var num = Number(inp.value)
+            if (num > 85) {
+                out.innerHTML = "Too High";
+            } else if (num < 85) {
+                out.innerHTML = "Too Low";
+            } else {
+                out.innerHTML = "Finally You Caught!";
+            }
+        }
+
+        inp.addEventListener("keyup", function (event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("btn").click();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
